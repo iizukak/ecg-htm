@@ -11,6 +11,21 @@ To collect data, we use some hardware,
 [SparkFun SEN-12650](https://www.sparkfun.com/products/12650) and [Arduino](https://www.arduino.cc/). 
 This system's total cost is under $50.
 
+## Usage
+
+### Take data
+
+```
+$ python2.7 take_data.py
+```
+
+### Plot with Gnuplot
+
+```
+$ gnuplot
+plot "< head -1000 sample_ecg.txt" with line
+```
+
 ## System Structure
 
 ### Software
@@ -32,4 +47,4 @@ Real-Time streaming data from ECG device.
 
 ## TODO
 
-First of all, I must go to [AKIHABARA](http://www.japan-guide.com/e/e3003.html), and buy cool component.
+Take ECG data with anomaly.
