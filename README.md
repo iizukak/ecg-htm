@@ -26,6 +26,13 @@ $ gnuplot
 plot "< head -1000 sample_ecg.txt" with line
 ```
 
+### Swarming
+
+To swarming, Use next command.
+```
+${NUPIC}/scripts/run_swarm.py search_def.json --maxWorkers=4
+```
+
 ## System Structure
 
 ### Software
