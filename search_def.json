@@ -19,7 +19,7 @@
         "columns": [
           "*"
         ], 
-        "last_record": 100
+        "last_record": 1000
       }
     ], 
     "aggregation": {
