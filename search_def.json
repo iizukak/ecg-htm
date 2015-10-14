@@ -2,7 +2,7 @@
   "includedFields": [
     {
       "fieldName": "timestamp",
-      "fieldType": "int"
+      "fieldType": "datetime"
     }, 
     {
       "fieldName": "value",
