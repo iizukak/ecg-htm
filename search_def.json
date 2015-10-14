@@ -1,0 +1,56 @@
+{
+  "includedFields": [
+    {
+      "fieldName": "timestamp",
+      "fieldType": "int"
+    }, 
+    {
+      "fieldName": "value",
+      "fieldType": "int"
+    }
+  ], 
+  "streamDef": {
+    "info": "test", 
+    "version": 1, 
+    "streams": [
+      {
+        "info": "sample_ecg.csv",
+        "source": "file://sample_ecg.csv",
+        "columns": [
+          "*"
+        ], 
+        "last_record": 100
+      }
+    ], 
+    "aggregation": {
+      "hours": 0,
+      "microseconds": 0, 
+      "seconds": 0, 
+      "fields": [
+        [
+          "value",
+          "sum"
+        ], 
+        [
+          "timestamp",
+          "first"
+        ]
+      ], 
+      "weeks": 0, 
+      "months": 0, 
+      "minutes": 0, 
+      "days": 0, 
+      "milliseconds": 1,
+      "years": 0
+    }
+  }, 
+  "inferenceType": "MultiStep", 
+  "inferenceArgs": {
+    "predictionSteps": [
+      1
+    ], 
+    "predictedField": "value"
+  }, 
+  "iterationCount": -1, 
+  "swarmSize": "medium"
+}
