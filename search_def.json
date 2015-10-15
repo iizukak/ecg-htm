@@ -24,7 +24,7 @@
     ], 
     "aggregation": {
       "hours": 0,
-      "microseconds": 0, 
+      "microseconds": 1, 
       "seconds": 0, 
       "fields": [
         [
@@ -40,7 +40,7 @@
       "months": 0, 
       "minutes": 0, 
       "days": 0, 
-      "milliseconds": 1,
+      "milliseconds": 0,
       "years": 0
     }
   }, 
