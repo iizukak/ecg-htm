@@ -37,7 +37,7 @@ try:
 except ImportError:
   pass
 
-WINDOW = 300
+WINDOW = 600
 HIGHLIGHT_ALPHA = 0.3
 ANOMALY_HIGHLIGHT_COLOR = 'red'
 WEEKEND_HIGHLIGHT_COLOR = 'yellow'
@@ -75,7 +75,7 @@ class NuPICFileOutput(NuPICOutput):
     self.outputWriters = []
     self.lineCount = 0
     headerRow = [
-      'timestamp', 'kw_energy_consumption', 'prediction',
+      'timestamp', 'value', 'prediction',
       'anomaly_score', 'anomaly_likelihood'
     ]
     outputFileName = "%s_out.csv" % self.name
@@ -88,7 +88,6 @@ class NuPICFileOutput(NuPICOutput):
 
 
   def write(self, timestamp, value, predicted, anomalyScore):
-    # print("DEBUG_VALUES", timestamp, value, predicted, anomalyScore)
     if timestamp is not None:
       anomalyLikelihood = self.anomalyLikelihoodHelper.anomalyProbability(
         value, anomalyScore, timestamp
@@ -184,7 +183,7 @@ class NuPICPlotOutput(NuPICOutput):
 
     self._mainGraph = fig.add_subplot(gs[0, 0])
     plt.title(self.name)
-    plt.ylabel('KW Energy Consumption')
+    plt.ylabel('Value')
     plt.xlabel('Date')
 
     self._anomalyGraph = fig.add_subplot(gs[1])
@@ -194,7 +193,7 @@ class NuPICPlotOutput(NuPICOutput):
 
     # Maximizes window
     mng = plt.get_current_fig_manager()
-    mng.resize(*mng.window.maxsize())
+    mng.resize(800, 600)
 
     plt.tight_layout()
 
@@ -233,7 +232,7 @@ class NuPICPlotOutput(NuPICOutput):
       tuple(['anomaly score', 'anomaly likelihood']), loc=3
     )
 
-    dateFormatter = DateFormatter('%m/%d %H:%M')
+    dateFormatter = DateFormatter('%H:%M:%S')
     self._mainGraph.xaxis.set_major_formatter(dateFormatter)
     self._anomalyGraph.xaxis.set_major_formatter(dateFormatter)
 
