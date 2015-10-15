@@ -34,7 +34,7 @@ from nupic.frameworks.opf.expdescriptionhelpers import importBaseDescription
 
 # the sub-experiment configuration
 config ={
-  'aggregationInfo' : {'seconds': 0, 'fields': [(u'timestamp', 'first'), (u'value', 'sum')], 'months': 0, 'days': 0, 'years': 0, 'hours': 0, 'microseconds': 0, 'weeks': 0, 'minutes': 0, 'milliseconds': 1},
+  'aggregationInfo' : {'seconds': 0, 'fields': [(u'timestamp', 'first'), (u'value', 'sum')], 'months': 0, 'days': 0, 'years': 0, 'hours': 0, 'microseconds': 1, 'weeks': 0, 'minutes': 0, 'milliseconds': 0},
   'modelParams' : {'sensorParams': {'encoders': {'_classifierInput': {'classifierOnly': True, 'clipInput': True, 'n': 275, 'fieldname': 'value', 'w': 21, 'type': 'AdaptiveScalarEncoder'}, u'timestamp_dayOfWeek': {'dayOfWeek': (21, 3.5), 'name': 'timestamp', 'fieldname': 'timestamp', 'type': 'DateEncoder'}, u'timestamp_timeOfDay': None, u'value': None, u'timestamp_weekend': None}}, 'inferenceType': 'NontemporalMultiStep', 'spParams': {'synPermInactiveDec': 0.05015}, 'tpParams': {'minThreshold': 11, 'activationThreshold': 14, 'pamLength': 3}, 'clParams': {'alpha': 0.050050000000000004}},
 
 }
