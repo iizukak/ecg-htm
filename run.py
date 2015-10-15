@@ -120,7 +120,6 @@ def runIoThroughNupic(inputData, model, gymName, plot):
 
     prediction = result.inferences["multiStepBestPredictions"][1]
 
-    print("DEBUG_PRINT", timestamp, consumption, result)
     anomalyScore = result.inferences["anomalyScore"]
     output.write(timestamp, consumption, prediction, anomalyScore)
 
