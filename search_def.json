@@ -15,11 +15,10 @@
     "streams": [
       {
         "info": "sample_ecg.csv",
-        "source": "file://sample_ecg.csv",
+        "source": "file://data/sample_ecg.csv",
         "columns": [
           "*"
-        ], 
-        "last_record": 1000
+        ]
       }
     ], 
     "aggregation": {
