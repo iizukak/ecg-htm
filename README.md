@@ -33,6 +33,14 @@ To swarming, Use next command.
 ${NUPIC}/scripts/run_swarm.py search_def.json --maxWorkers=4
 ```
 
+### run
+
+run with CSV file
+
+```
+python2.7 run.py --plot
+```
+
 ## System Structure
 
 ### Software
