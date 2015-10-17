@@ -1,24 +1,3 @@
-# ----------------------------------------------------------------------
-# Numenta Platform for Intelligent Computing (NuPIC)
-# Copyright (C) 2013, Numenta, Inc.  Unless you have an agreement
-# with Numenta, Inc., for a separate license for this software code, the
-# following terms and conditions apply:
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero Public License version 3 as
-# published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-# See the GNU Affero Public License for more details.
-#
-# You should have received a copy of the GNU Affero Public License
-# along with this program.  If not, see http://www.gnu.org/licenses.
-#
-# http://numenta.org/licenses/
-# ----------------------------------------------------------------------
-
 MODEL_PARAMS = {'aggregationInfo': {'days': 0,
                      'fields': [(u'timestamp', 'first'), (u'value', 'sum')],
                      'hours': 0,
@@ -38,28 +17,15 @@ MODEL_PARAMS = {'aggregationInfo': {'days': 0,
                               'regionName': 'CLAClassifierRegion',
                               'steps': '1'},
                  'inferenceType': 'TemporalAnomaly',
-                 'sensorParams': {'encoders': {'_classifierInput': {'classifierOnly': True,
-                                                                    'clipInput': True,
-                                                                    'fieldname': 'value',
-                                                                    'n': 275,
-                                                                    'name': '_classifierInput',
-                                                                    'type': 'AdaptiveScalarEncoder',
-                                                                    'w': 21},
-                                               u'timestamp_dayOfWeek': {'dayOfWeek': (21,
-                                                                                      3.5),
-                                                                        'fieldname': 'timestamp',
-                                                                        'name': 'timestamp',
-                                                                        'type': 'DateEncoder'},
+                 'sensorParams': {'encoders': {'_classifierInput': None,
                                                u'timestamp_timeOfDay': None,
                                                u'timestamp_weekend': None,
                                                u'value': {'clipInput': True,
                                                           'fieldname': 'value',
                                                           'type': 'AdaptiveScalarEncoder',
                                                           'name': 'value',
-                                                          'minval': 0.0,
-                                                          'maxval': 1000.0,
                                                           'w': 21,
-                                                          'n': 275
+                                                          'n': 272
                                                         }
                                                 },
                                   'sensorAutoReset': None,
