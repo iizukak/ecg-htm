@@ -81,7 +81,7 @@ def getModelParamsFromName(gymName):
 
 
 
-def runIoThroughNupic(inputData, model, gymName, plot):
+def runIoThroughNupic(inputData, model, gymName, plot, load):
     """
     Handles looping over the input data and passing each row into the given model
     object, as well as extracting the result object and passing it into an output
@@ -107,13 +107,7 @@ def runIoThroughNupic(inputData, model, gymName, plot):
     counter = 0
     for row in csvReader:
         counter += 1
-        # speed up hack
 
-        # if counter % 100 == 0:
-            # model.save(MODEL_DIR)
-
-        if counter % 3 == 0:
-            continue
         if (counter % 100 == 0):
             print "Read %i lines..." % counter
         timestamp = datetime.datetime.strptime(row[0], DATE_FORMAT)
@@ -131,12 +125,14 @@ def runIoThroughNupic(inputData, model, gymName, plot):
         anomalyScore = result.inferences["anomalyScore"]
         output.write(timestamp, consumption, prediction, anomalyScore)
 
+    if not load:
+        model.save(MODEL_DIR)
     inputFile.close()
     output.close()
 
 
 
-def runModel(gymName, plot=False):
+def runModel(gymName, plot=False, load=False):
     """
     Assumes the gynName corresponds to both a like-named model_params file in the
     model_params directory, and that the data exists in a like-named CSV file in
@@ -145,18 +141,31 @@ def runModel(gymName, plot=False):
     :param plot: Plot in matplotlib? Don't use this unless matplotlib is
     installed.
     """
-    print "Creating model from %s..." % gymName
-    model = createModel(getModelParamsFromName(gymName))
+
+    if load:
+        print "Loading model from %s..." % MODEL_DIR
+        model = ModelFactory.loadFromCheckpoint(MODEL_DIR)
+        model.disableLearning()
+    else:
+        print "Creating model from %s..." % gymName
+        model = createModel(getModelParamsFromName(gymName))
+
     inputData = "%s/%s.csv" % (DATA_DIR, gymName.replace(" ", "_"))
     print("inputData:", inputData)
-    runIoThroughNupic(inputData, model, gymName, plot)
+    runIoThroughNupic(inputData, model, gymName, plot, load)
 
 
 
 if __name__ == "__main__":
     print DESCRIPTION
     plot = False
+    load = False
     args = sys.argv[1:]
-    if "--plot" in args:
-        plot = True
-    runModel(GYM_NAME, plot=plot)
+    for arg in args:
+        print(arg)
+        if arg == "--plot":
+            plot = True
+        elif arg == "--load":
+            load = True
+
+    runModel(GYM_NAME, plot=plot, load=load)
