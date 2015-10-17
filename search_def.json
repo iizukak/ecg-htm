@@ -43,7 +43,7 @@
       "years": 0
     }
   }, 
-  "inferenceType": "MultiStep", 
+  "inferenceType": "TemporalAnomaly",
   "inferenceArgs": {
     "predictionSteps": [
       1
