@@ -14,11 +14,12 @@
     "version": 1, 
     "streams": [
       {
-        "info": "sample_ecg.csv",
-        "source": "file://data/sample_ecg.csv",
+        "info": "normal.csv",
+        "source": "file://data/normal.csv",
         "columns": [
           "*"
-        ]
+        ],
+        "last_record": 2000
       }
     ], 
     "aggregation": {
