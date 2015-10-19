@@ -232,7 +232,7 @@ class NuPICPlotOutput(NuPICOutput):
             tuple(['anomaly score', 'anomaly likelihood']), loc=3
         )
 
-        dateFormatter = DateFormatter('%H:%M:%S')
+        dateFormatter = DateFormatter('%H:%M:%S.%f')
         self._mainGraph.xaxis.set_major_formatter(dateFormatter)
         self._anomalyGraph.xaxis.set_major_formatter(dateFormatter)
 
@@ -288,11 +288,11 @@ class NuPICPlotOutput(NuPICOutput):
             poly.remove()
         self._chartHighlights = []
 
-        weekends = extractWeekendHighlights(self.dates)
+        # weekends = extractWeekendHighlights(self.dates)
         anomalies = extractAnomalyIndices(self.anomalyLikelihood)
 
         # Highlight weekends in main chart
-        self.highlightChart(weekends, self._mainGraph)
+        # self.highlightChart(weekends, self._mainGraph)
 
         # Highlight anomalies in anomaly chart
         self.highlightChart(anomalies, self._anomalyGraph)
