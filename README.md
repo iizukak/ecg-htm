@@ -23,6 +23,7 @@ $ python2.7 take_data.py
 
 ```
 $ gnuplot
+set datafile separator ","
 plot "< head -1000 sample_ecg.txt" with line
 ```
 
