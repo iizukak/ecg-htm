@@ -3,3 +3,5 @@ description.py
 permutations.py
 search_def_*.pkl
 search_def_*.csv
+*_out.csv
+model/*
