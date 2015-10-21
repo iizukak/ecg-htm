@@ -40,9 +40,10 @@ DESCRIPTION = (
     "are written to an output file (default) or plotted dynamically if\n"
     "the --plot option is specified.\n"
 )
-GYM_NAME = "sample_ecg"
+#CSV_NAME = "anomaly"
+CSV_NAME = "normal"
 DATA_DIR = "./data"
-MODEL_DIR = "/Users/kentaro/projects/ecg-htm/model"
+MODEL_DIR = "/Users/iizuka-ke/programs/ecg-htm/model"
 MODEL_PARAMS_DIR = "./model_params"
 # '7/2/10 0:00'
 #DATE_FORMAT = "%m/%d/%y %H:%M"
@@ -105,12 +106,19 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
         output = nupic_anomaly_output.NuPICFileOutput(gymName)
 
     counter = 0
+
+    # using dummy time to debug
+    timestamp = datetime.datetime.strptime(csvReader.next()[0], DATE_FORMAT)
+    print("DEBUG_PRINT: initiali time", timestamp)
+
     for row in csvReader:
         counter += 1
 
         if (counter % 100 == 0):
             print "Read %i lines..." % counter
-        timestamp = datetime.datetime.strptime(row[0], DATE_FORMAT)
+
+        timestamp = timestamp + datetime.timedelta(microseconds=10000)
+        #timestamp = datetime.datetime.strptime(row[0], DATE_FORMAT)
         consumption = float(row[1])
         result = model.run({
             "timestamp": timestamp,
@@ -121,9 +129,14 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
             result = shifter.shift(result)
 
         prediction = result.inferences["multiStepBestPredictions"][1]
-
         anomalyScore = result.inferences["anomalyScore"]
+
+        # plot half of the data for speed up
+        if (counter % 2 == 0):
+            continue
+
         output.write(timestamp, consumption, prediction, anomalyScore)
+
 
     if not load:
         model.save(MODEL_DIR)
@@ -168,4 +181,4 @@ if __name__ == "__main__":
         elif arg == "--load":
             load = True
 
-    runModel(GYM_NAME, plot=plot, load=load)
+    runModel(CSV_NAME, plot=plot, load=load)
