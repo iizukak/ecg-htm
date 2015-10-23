@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 # ----------------------------------------------------------------------
 # Numenta Platform for Intelligent Computing (NuPIC)
 # Copyright (C) 2013, Numenta, Inc.    Unless you have an agreement
@@ -27,6 +27,7 @@ import importlib
 import sys
 import csv
 import datetime
+import os
 
 from nupic.data.inference_shifter import InferenceShifter
 from nupic.frameworks.opf.modelfactory import ModelFactory
@@ -42,11 +43,8 @@ DESCRIPTION = (
 )
 #CSV_NAME = "anomaly"
 CSV_NAME = "normal"
-DATA_DIR = "./data"
-MODEL_DIR = "/Users/iizuka-ke/programs/ecg-htm/model"
-MODEL_PARAMS_DIR = "./model_params"
-# '7/2/10 0:00'
-#DATE_FORMAT = "%m/%d/%y %H:%M"
+DATA_DIR = "data"
+MODEL_DIR = os.getcwd() + "/model"
 # 2015-10-14 17:21:33.058979
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S.%f"
 
