@@ -74,8 +74,7 @@ def getModelParamsFromName(gymName):
     try:
         importedModelParams = importlib.import_module(importName).MODEL_PARAMS
     except ImportError:
-        raise Exception("No model params exist for '%s'. Run swarm first!"
-                                        % gymName)
+        raise Exception("No model params exist")
     return importedModelParams
 
 
@@ -157,15 +156,23 @@ def runModel(gymName, plot=False, load=False):
         print "Loading model from %s..." % MODEL_DIR
         model = ModelFactory.loadFromCheckpoint(MODEL_DIR)
         model.disableLearning()
+        inputData = "%s/%s.csv" % (DATA_DIR, gymName)
+        runIoThroughNupic(inputData, model, gymName, plot, load)
     else:
         print "Creating model from %s..." % gymName
         model = createModel(getModelParamsFromName(gymName))
+        model.save(MODEL_DIR)
 
-    inputData = "%s/%s.csv" % (DATA_DIR, gymName.replace(" ", "_"))
-    print("inputData:", inputData)
-    runIoThroughNupic(inputData, model, gymName, plot, load)
-
-
+        # read learning file list from learning_list.txt
+        f = open(DATA_DIR + "/learning_list.txt")
+        files = f.readlines()
+        f.close()
+        for file in files:
+            model = ModelFactory.loadFromCheckpoint(MODEL_DIR)
+            model.resetSequenceStates()
+            print(file)
+            inputData = "%s/%s.csv" % (DATA_DIR, file)
+            runIoThroughNupic(inputData, model, file, plot, load)
 
 if __name__ == "__main__":
     print DESCRIPTION
