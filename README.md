@@ -31,7 +31,8 @@ plot "< head -1000 sample_ecg.txt" with line
 
 To swarming, Use next command.
 ```
-${NUPIC}/scripts/run_swarm.py search_def.json --maxWorkers=4
+cd swarming
+${NUPIC}/scripts/run_swarm.py search_def.json --maxWorkers=4 --overwrite
 ```
 
 ### run
