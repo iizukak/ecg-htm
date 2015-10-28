@@ -133,13 +133,18 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
             continue
 
         output.write(timestamp, consumption, prediction, anomalyScore)
+        
+        if counter > 1000:
+            break
 
 
     if not load:
+        print("saving model for MODEL_DIR")
         model.save(MODEL_DIR)
     inputFile.close()
     output.close()
 
+    return model
 
 
 def runModel(gymName, plot=False, load=False):
@@ -161,18 +166,17 @@ def runModel(gymName, plot=False, load=False):
     else:
         print "Creating model from %s..." % gymName
         model = createModel(getModelParamsFromName(gymName))
-        model.save(MODEL_DIR)
 
         # read learning file list from learning_list.txt
         f = open(DATA_DIR + "/learning_list.txt")
         files = f.readlines()
         f.close()
         for file in files:
-            model = ModelFactory.loadFromCheckpoint(MODEL_DIR)
             model.resetSequenceStates()
-            print(file)
-            inputData = "%s/%s.csv" % (DATA_DIR, file)
-            runIoThroughNupic(inputData, model, file, plot, load)
+            filename = file.strip()
+            print(filename)
+            inputData = "%s/%s.csv" % (DATA_DIR, filename)
+            model = runIoThroughNupic(inputData, model, filename, plot, load)
 
 if __name__ == "__main__":
     print DESCRIPTION
