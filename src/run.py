@@ -74,8 +74,7 @@ def getModelParamsFromName(gymName):
     try:
         importedModelParams = importlib.import_module(importName).MODEL_PARAMS
     except ImportError:
-        raise Exception("No model params exist for '%s'. Run swarm first!"
-                                        % gymName)
+        raise Exception("No model params exist")
     return importedModelParams
 
 
@@ -134,13 +133,18 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
             continue
 
         output.write(timestamp, consumption, prediction, anomalyScore)
+        
+        if counter > 1000:
+            break
 
 
     if not load:
+        print("saving model for MODEL_DIR")
         model.save(MODEL_DIR)
     inputFile.close()
     output.close()
 
+    return model
 
 
 def runModel(gymName, plot=False, load=False):
@@ -157,15 +161,22 @@ def runModel(gymName, plot=False, load=False):
         print "Loading model from %s..." % MODEL_DIR
         model = ModelFactory.loadFromCheckpoint(MODEL_DIR)
         model.disableLearning()
+        inputData = "%s/%s.csv" % (DATA_DIR, gymName)
+        runIoThroughNupic(inputData, model, gymName, plot, load)
     else:
         print "Creating model from %s..." % gymName
         model = createModel(getModelParamsFromName(gymName))
 
-    inputData = "%s/%s.csv" % (DATA_DIR, gymName.replace(" ", "_"))
-    print("inputData:", inputData)
-    runIoThroughNupic(inputData, model, gymName, plot, load)
-
-
+        # read learning file list from learning_list.txt
+        f = open(DATA_DIR + "/learning_list.txt")
+        files = f.readlines()
+        f.close()
+        for file in files:
+            model.resetSequenceStates()
+            filename = file.strip()
+            print(filename)
+            inputData = "%s/%s.csv" % (DATA_DIR, filename)
+            model = runIoThroughNupic(inputData, model, filename, plot, load)
 
 if __name__ == "__main__":
     print DESCRIPTION
