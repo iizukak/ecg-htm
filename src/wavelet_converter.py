@@ -6,10 +6,9 @@ import pywt
 from collections import deque
 
 # setting for wavelet conversion
-WAVELET_SEGMENT_SIZE = 256
+WAVELET_SEGMENT_SIZE = 200
 WAVELET_UPDATE_SIZE = 1
 WAVELET_DB = "db2"
-WAVELET_MODE = "sp1"
 
 # setting CSV data directory
 DATA_DIR = "data/"
@@ -26,12 +25,12 @@ outputPath = DATA_DIR + t + "_converted.csv"
 # setting input file
 targetFile = open(targetPath, "r")
 csvReader = csv.reader(targetFile)
-print("DEBUG: TARGET FILE PATH:", targetFile)
+print("DEBUG: TARGET FILE PATH:", targetPath)
 
 # setting output file
 outputFile = open(outputPath, "w")
 csvWriter = csv.writer(outputFile, lineterminator='\n')
-print("DEBUG: OUTPUT FILE PATH:", outputFile)
+print("DEBUG: OUTPUT FILE PATH:", outputPath)
 
 # Skip Header File
 csvReader.next()
@@ -44,7 +43,7 @@ for i in range(WAVELET_SEGMENT_SIZE):
     date, value = csvReader.next()
     currentSegment.append(value)
 
-cA, cD = pywt.dwt(currentSegment, WAVELET_DB, mode=WAVELET_MODE)
+cA, cD = pywt.dwt(currentSegment, WAVELET_DB)
 
 print("DEBUG: SAMPLE CONVERTED ROW: ", cA)
 print("DEBUG: SAMPLE CONVERTED ROW SIZE:" , len(cA))
@@ -61,7 +60,7 @@ for i in range(iteration_size):
         date, value = csvReader.next()
         currentSegment.append(value)
 
-    cA, cD = pywt.dwt(sorted(currentSegment), WAVELET_DB, mode=WAVELET_MODE)
+    cA, cD = pywt.dwt(sorted(currentSegment), WAVELET_DB)
     csvWriter.writerow(cA)
 
 targetFile.close()
