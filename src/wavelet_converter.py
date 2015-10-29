@@ -48,7 +48,8 @@ cA, cD = pywt.dwt(currentSegment, WAVELET_DB)
 print("DEBUG: SAMPLE CONVERTED ROW: ", cA)
 print("DEBUG: SAMPLE CONVERTED ROW SIZE:" , len(cA))
 
-csvWriter.writerow(cA)
+waveletList = []
+waveletList.append([date, cA[1]])
 
 iteration_size = ((sum(1 for line in open(targetPath, "r")) \
                     - WAVELET_SEGMENT_SIZE) \
@@ -61,7 +62,15 @@ for i in range(iteration_size):
         currentSegment.append(value)
 
     cA, cD = pywt.dwt(sorted(currentSegment), WAVELET_DB)
-    csvWriter.writerow(cA)
+    # csvWriter.writerow(cA)
+    waveletList.append([date, cA[1]])
+
+s = sum(map(lambda l:l[1], waveletList))
+offset = 500 - (s / len(waveletList))
+print("DEBUG: OFFFSET:", offset)
+waveletList  = map(lambda l: [l[0] ,(l[1] + offset)], waveletList)
+
+csvWriter.writerows(waveletList)
 
 targetFile.close()
 outputFile.close()
