@@ -10,6 +10,8 @@ WAVELET_SEGMENT_SIZE = 200
 WAVELET_UPDATE_SIZE = 1
 WAVELET_DB = "db2"
 
+SMOOTHING_SIZE = 100
+
 # setting CSV data directory
 DATA_DIR = "data/"
 
@@ -51,16 +53,21 @@ iteration_size = ((sum(1 for line in open(targetPath, "r")) \
                     / WAVELET_UPDATE_SIZE) - 1
 
 print("DEBUG: LOOP_NUM:", iteration_size)
+smoothingSegment = deque([500.0] * SMOOTHING_SIZE, maxlen=SMOOTHING_SIZE)
 for i in range(iteration_size):
     for j in range(WAVELET_UPDATE_SIZE):
         date, value = csvReader.next()
         currentSegment.append(value)
 
     cA, cD = pywt.dwt(sorted(currentSegment), WAVELET_DB)
-    # csvWriter.writerow(cA)
-    waveletList.append([date, int(value), cA[1]])
 
-s = sum(map(lambda l:l[1], waveletList))
+    # do smoothing
+    smoothingSegment.append(cA[1])
+    smoothedValue = sum(smoothingSegment) / SMOOTHING_SIZE
+
+    waveletList.append([date, int(value), smoothedValue])
+
+s = sum(map(lambda l:l[2], waveletList))
 offset = 500 - (s / len(waveletList))
 print("DEBUG: OFFFSET:", offset)
 waveletList  = map(lambda l: [l[0], l[1], (l[2] + offset)], waveletList)

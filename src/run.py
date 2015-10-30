@@ -130,7 +130,7 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
         anomalyScore = result.inferences["anomalyScore"]
 
         # plot half of the data for speed up
-        if (counter % 2 == 0):
+        if (counter % 3 != 0):
             continue
 
         output.write(timestamp, consumption, prediction, anomalyScore)

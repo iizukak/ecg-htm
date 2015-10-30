@@ -37,7 +37,7 @@ try:
 except ImportError:
     pass
 
-WINDOW = 600
+WINDOW = 1200
 HIGHLIGHT_ALPHA = 0.3
 ANOMALY_HIGHLIGHT_COLOR = 'red'
 WEEKEND_HIGHLIGHT_COLOR = 'yellow'
@@ -75,7 +75,7 @@ class NuPICFileOutput(NuPICOutput):
         self.outputWriters = []
         self.lineCount = 0
         headerRow = [
-            'timestamp', 'value', 'prediction',
+            'timestamp', 'wavelet_value', 'prediction',
             'anomaly_score', 'anomaly_likelihood'
         ]
         outputFileName = "%s_out.csv" % self.name
