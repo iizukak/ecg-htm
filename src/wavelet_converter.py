@@ -32,11 +32,6 @@ outputFile = open(outputPath, "w")
 csvWriter = csv.writer(outputFile, lineterminator='\n')
 print("DEBUG: OUTPUT FILE PATH:", outputPath)
 
-# Skip Header File
-csvReader.next()
-csvReader.next()
-csvReader.next()
-
 # make initial segment
 currentSegment = deque(maxlen = WAVELET_SEGMENT_SIZE)
 for i in range(WAVELET_SEGMENT_SIZE):
@@ -49,11 +44,11 @@ print("DEBUG: SAMPLE CONVERTED ROW: ", cA)
 print("DEBUG: SAMPLE CONVERTED ROW SIZE:" , len(cA))
 
 waveletList = []
-waveletList.append([date, cA[1]])
+waveletList.append([date, int(value), cA[1]])
 
 iteration_size = ((sum(1 for line in open(targetPath, "r")) \
                     - WAVELET_SEGMENT_SIZE) \
-                    / WAVELET_UPDATE_SIZE) - 4
+                    / WAVELET_UPDATE_SIZE) - 1
 
 print("DEBUG: LOOP_NUM:", iteration_size)
 for i in range(iteration_size):
@@ -63,12 +58,18 @@ for i in range(iteration_size):
 
     cA, cD = pywt.dwt(sorted(currentSegment), WAVELET_DB)
     # csvWriter.writerow(cA)
-    waveletList.append([date, cA[1]])
+    waveletList.append([date, int(value), cA[1]])
 
 s = sum(map(lambda l:l[1], waveletList))
 offset = 500 - (s / len(waveletList))
 print("DEBUG: OFFFSET:", offset)
-waveletList  = map(lambda l: [l[0] ,(l[1] + offset)], waveletList)
+waveletList  = map(lambda l: [l[0], l[1], (l[2] + offset)], waveletList)
+
+# write csv headers
+csvWriter.writerow(["timestamp", "raw_value", "wavelet_value"])
+csvWriter.writerow(["datetime", "int", "float"])
+csvWriter.writerow(["T", "", ""])
+
 
 csvWriter.writerows(waveletList)
 
