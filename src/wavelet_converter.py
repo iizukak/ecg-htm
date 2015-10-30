@@ -7,7 +7,6 @@ from collections import deque
 
 # setting for wavelet conversion
 WAVELET_SEGMENT_SIZE = 200
-WAVELET_UPDATE_SIZE = 1
 WAVELET_DB = "db2"
 
 SMOOTHING_SIZE = 100
@@ -36,34 +35,23 @@ print("DEBUG: OUTPUT FILE PATH:", outputPath)
 
 # make initial segment
 currentSegment = deque(maxlen = WAVELET_SEGMENT_SIZE)
+waveletList = []
 for i in range(WAVELET_SEGMENT_SIZE):
     date, value = csvReader.next()
     currentSegment.append(value)
 
-cA, cD = pywt.dwt(currentSegment, WAVELET_DB)
+smoothingSegment = deque(maxlen=SMOOTHING_SIZE)
 
-print("DEBUG: SAMPLE CONVERTED ROW: ", cA)
-print("DEBUG: SAMPLE CONVERTED ROW SIZE:" , len(cA))
-
-waveletList = []
-waveletList.append([date, int(value), cA[1]])
-
-iteration_size = ((sum(1 for line in open(targetPath, "r")) \
-                    - WAVELET_SEGMENT_SIZE) \
-                    / WAVELET_UPDATE_SIZE) - 1
-
+iteration_size = ((sum(1 for line in open(targetPath, "r")) - WAVELET_SEGMENT_SIZE)) - 1
 print("DEBUG: LOOP_NUM:", iteration_size)
-smoothingSegment = deque([500.0] * SMOOTHING_SIZE, maxlen=SMOOTHING_SIZE)
 for i in range(iteration_size):
-    for j in range(WAVELET_UPDATE_SIZE):
-        date, value = csvReader.next()
-        currentSegment.append(value)
+    date, value = csvReader.next()
+    currentSegment.append(value)
 
     cA, cD = pywt.dwt(sorted(currentSegment), WAVELET_DB)
 
-    # do smoothing
     smoothingSegment.append(cA[1])
-    smoothedValue = sum(smoothingSegment) / SMOOTHING_SIZE
+    smoothedValue = sum(smoothingSegment) / len(smoothingSegment)
 
     waveletList.append([date, int(value), smoothedValue])
 
