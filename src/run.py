@@ -42,7 +42,7 @@ DESCRIPTION = (
     "the --plot option is specified.\n"
 )
 #CSV_NAME = "anomaly"
-CSV_NAME = "normal"
+CSV_NAME = "normal_converted"
 DATA_DIR = "data"
 MODEL_DIR = os.getcwd() + "/model"
 # 2015-10-14 17:21:33.058979
@@ -57,7 +57,7 @@ def createModel(modelParams):
     :return: OPF Model object
     """
     model = ModelFactory.create(modelParams)
-    model.enableInference({"predictedField": "value"})
+    model.enableInference({"predictedField": "wavelet_value"})
     return model
 
 
@@ -69,12 +69,13 @@ def getModelParamsFromName(gymName):
     :param gymName: Gym name, used to guess the model params module name.
     :return: OPF Model params dictionary
     """
-    importName = "model_params.model_params"
+    importName = "model_params.model_params_normal"
     print "Importing model params from %s" % importName
     try:
         importedModelParams = importlib.import_module(importName).MODEL_PARAMS
     except ImportError:
         raise Exception("No model params exist")
+    print importedModelParams
     return importedModelParams
 
 
@@ -116,10 +117,10 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
 
         timestamp = timestamp + datetime.timedelta(microseconds=10000)
         #timestamp = datetime.datetime.strptime(row[0], DATE_FORMAT)
-        consumption = float(row[1])
+        consumption = float(row[2])
         result = model.run({
             "timestamp": timestamp,
-            "value": consumption
+            "wavelet_value": consumption
         })
 
         if plot:
@@ -134,10 +135,6 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
 
         output.write(timestamp, consumption, prediction, anomalyScore)
         
-        if counter > 1000:
-            break
-
-
     if not load:
         print("saving model for MODEL_DIR")
         model.save(MODEL_DIR)
