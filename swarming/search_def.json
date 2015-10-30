@@ -27,7 +27,7 @@
     ], 
     "aggregation": {
       "hours": 0,
-      "microseconds": 1, 
+      "microseconds": 0, 
       "seconds": 0, 
       "fields": [
         [
