@@ -6,17 +6,18 @@ import pywt
 from collections import deque
 
 # setting for wavelet conversion
-WAVELET_SEGMENT_SIZE = 200
+WAVELET_SEGMENT_SIZE = 20
 WAVELET_DB = "db2"
+WAVELET_FREQUENCY = 1
 
-SMOOTHING_SIZE = 100
+SMOOTHING_SIZE = 20
 
 # setting CSV data directory
 DATA_DIR = "data/"
 
 # setting file
 import argparse
-parser = argparse.ArgumentParser(description = "Lovelive MaU Manual Generator")
+parser = argparse.ArgumentParser(description = "")
 parser.add_argument('--target', required=True)
 args = parser.parse_args()
 t = args.target
@@ -48,9 +49,10 @@ for i in range(iteration_size):
     date, value = csvReader.next()
     currentSegment.append(value)
 
-    cA, cD = pywt.dwt(sorted(currentSegment), WAVELET_DB)
+    # cA, cD = pywt.dwt(sorted(currentSegment), WAVELET_DB)
+    cA, cD = pywt.dwt(currentSegment, WAVELET_DB)
 
-    smoothingSegment.append(cA[1])
+    smoothingSegment.append(cA[WAVELET_FREQUENCY])
     smoothedValue = sum(smoothingSegment) / len(smoothingSegment)
 
     waveletList.append([date, int(value), smoothedValue])
