@@ -18,8 +18,8 @@
     "version": 1, 
     "streams": [
       {
-        "info": "anomaly_converted.csv",
-        "source": "file://data/anomaly_converted.csv",
+        "info": "healthy_person1_wavelet.csv",
+        "source": "file://data/healthy_person1_wavelet.csv",
         "columns": [
           "*"
         ]
@@ -54,7 +54,7 @@
   "inferenceType": "TemporalAnomaly",
   "inferenceArgs": {
     "predictionSteps": [
-      1
+      3
     ], 
     "predictedField": "wavelet_value"
   }, 
