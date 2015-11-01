@@ -37,7 +37,7 @@ try:
 except ImportError:
     pass
 
-WINDOW = 1200
+WINDOW = 300
 HIGHLIGHT_ALPHA = 0.3
 ANOMALY_HIGHLIGHT_COLOR = 'red'
 WEEKEND_HIGHLIGHT_COLOR = 'yellow'
@@ -55,7 +55,7 @@ class NuPICOutput(object):
 
 
     @abstractmethod
-    def write(self, timestamp, value, predicted, anomalyScore):
+    def write(self, timestamp, value, predicted, anomalyScore, rawValue):
         pass
 
 
@@ -76,7 +76,7 @@ class NuPICFileOutput(NuPICOutput):
         self.lineCount = 0
         headerRow = [
             'timestamp', 'wavelet_value', 'prediction',
-            'anomaly_score', 'anomaly_likelihood'
+            'anomaly_score', 'anomaly_likelihood', 'rawValue'
         ]
         outputFileName = "%s_out.csv" % self.name
         print "Preparing to output %s data to %s" % (self.name, outputFileName)
@@ -87,12 +87,12 @@ class NuPICFileOutput(NuPICOutput):
 
 
 
-    def write(self, timestamp, value, predicted, anomalyScore):
+    def write(self, timestamp, value, predicted, anomalyScore, rawValue):
         if timestamp is not None:
             anomalyLikelihood = self.anomalyLikelihoodHelper.anomalyProbability(
                 value, anomalyScore, timestamp
             )
-            outputRow = [timestamp, value, predicted, anomalyScore, anomalyLikelihood]
+            outputRow = [timestamp, value, predicted, anomalyScore, anomalyLikelihood, rawValue]
             self.outputWriter.writerow(outputRow)
             self.lineCount += 1
 
@@ -168,11 +168,14 @@ class NuPICPlotOutput(NuPICOutput):
         self.dates = []
         self.convertedDates = []
         self.value = []
+        self.rawValue = []
         self.allValues = []
+        self.allRawValues = []
         self.predicted = []
         self.anomalyScore = []
         self.anomalyLikelihood = []
         self.actualLine = None
+        self.rawLine = None
         self.predictedLine = None
         self.anomalyScoreLine = None
         self.anomalyLikelihoodLine = None
@@ -207,15 +210,18 @@ class NuPICPlotOutput(NuPICOutput):
             [date2num(date) for date in self.dates], maxlen=WINDOW
         )
         self.value = deque([0.0] * WINDOW, maxlen=WINDOW)
+        self.rawValue = deque([0.0] * WINDOW, maxlen=WINDOW)
         self.predicted = deque([0.0] * WINDOW, maxlen=WINDOW)
         self.anomalyScore = deque([0.0] * WINDOW, maxlen=WINDOW)
         self.anomalyLikelihood = deque([0.0] * WINDOW, maxlen=WINDOW)
 
         actualPlot, = self._mainGraph.plot(self.dates, self.value)
         self.actualLine = actualPlot
+        rawPlot, = self._mainGraph.plot(self.dates, self.rawValue)
+        self.rawLine = rawPlot
         predictedPlot, = self._mainGraph.plot(self.dates, self.predicted)
         self.predictedLine = predictedPlot
-        self._mainGraph.legend(tuple(['actual', 'predicted']), loc=3)
+        self._mainGraph.legend(tuple(['actual', 'raw', 'predicted']), loc=3)
 
         anomalyScorePlot, = self._anomalyGraph.plot(
             self.dates, self.anomalyScore, 'm'
@@ -253,7 +259,7 @@ class NuPICPlotOutput(NuPICOutput):
 
 
 
-    def write(self, timestamp, value, predicted, anomalyScore):
+    def write(self, timestamp, value, predicted, anomalyScore, rawValue):
 
         # We need the first timestamp to initialize the lines at the right X value,
         # so do that check first.
@@ -267,7 +273,9 @@ class NuPICPlotOutput(NuPICOutput):
         self.dates.append(timestamp)
         self.convertedDates.append(date2num(timestamp))
         self.value.append(value)
+        self.rawValue.append(rawValue)
         self.allValues.append(value)
+        self.allRawValues.append(rawValue)
         self.predicted.append(predicted)
         self.anomalyScore.append(anomalyScore)
         self.anomalyLikelihood.append(anomalyLikelihood)
@@ -275,6 +283,8 @@ class NuPICPlotOutput(NuPICOutput):
         # Update main chart data
         self.actualLine.set_xdata(self.convertedDates)
         self.actualLine.set_ydata(self.value)
+        self.rawLine.set_xdata(self.convertedDates)
+        self.rawLine.set_ydata(self.rawValue)
         self.predictedLine.set_xdata(self.convertedDates)
         self.predictedLine.set_ydata(self.predicted)
         # Update anomaly chart data
@@ -297,7 +307,7 @@ class NuPICPlotOutput(NuPICOutput):
         # Highlight anomalies in anomaly chart
         self.highlightChart(anomalies, self._anomalyGraph)
 
-        maxValue = max(self.allValues)
+        maxValue = max(max(self.allValues), max(self.allRawValues))
         self._mainGraph.relim()
         self._mainGraph.axes.set_ylim(0, maxValue + (maxValue * 0.02))
 

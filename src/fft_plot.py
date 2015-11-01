@@ -35,7 +35,6 @@ print("MAX_VALUE",max(testrow))
 
 fig, ax = plt.subplots()
 line, = ax.plot(testrow)
-ax.set_ylim(0, 2000)
 
 def update(data):
     line.set_ydata(data)

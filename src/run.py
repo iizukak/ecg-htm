@@ -42,7 +42,7 @@ DESCRIPTION = (
     "the --plot option is specified.\n"
 )
 #CSV_NAME = "anomaly"
-CSV_NAME = "normal_converted"
+CSV_NAME = "common"
 DATA_DIR = "data"
 MODEL_DIR = os.getcwd() + "/model"
 # 2015-10-14 17:21:33.058979
@@ -69,7 +69,7 @@ def getModelParamsFromName(gymName):
     :param gymName: Gym name, used to guess the model params module name.
     :return: OPF Model params dictionary
     """
-    importName = "model_params.model_params_normal"
+    importName = "model_params.model_params_common"
     print "Importing model params from %s" % importName
     try:
         importedModelParams = importlib.import_module(importName).MODEL_PARAMS
@@ -118,6 +118,7 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
         timestamp = timestamp + datetime.timedelta(microseconds=10000)
         #timestamp = datetime.datetime.strptime(row[0], DATE_FORMAT)
         consumption = float(row[2])
+        rawValue = float(row[1])
         result = model.run({
             "timestamp": timestamp,
             "wavelet_value": consumption
@@ -129,11 +130,7 @@ def runIoThroughNupic(inputData, model, gymName, plot, load):
         prediction = result.inferences["multiStepBestPredictions"][1]
         anomalyScore = result.inferences["anomalyScore"]
 
-        # plot half of the data for speed up
-        if (counter % 3 != 0):
-            continue
-
-        output.write(timestamp, consumption, prediction, anomalyScore)
+        output.write(timestamp, consumption, prediction, anomalyScore, rawValue)
         
     if not load:
         print("saving model for MODEL_DIR")
@@ -158,11 +155,17 @@ def runModel(gymName, plot=False, load=False):
         print "Loading model from %s..." % MODEL_DIR
         model = ModelFactory.loadFromCheckpoint(MODEL_DIR)
         model.disableLearning()
-        inputData = "%s/%s.csv" % (DATA_DIR, gymName)
-        runIoThroughNupic(inputData, model, gymName, plot, load)
+
+        f = open(DATA_DIR + "/learning_list.txt")
+        filename = f.readline().strip()
+
+        inputData = "%s/%s.csv" % (DATA_DIR, filename)
+        runIoThroughNupic(inputData, model, filename, plot, load)
+
     else:
         print "Creating model from %s..." % gymName
         model = createModel(getModelParamsFromName(gymName))
+        model.enableLearning()
 
         # read learning file list from learning_list.txt
         f = open(DATA_DIR + "/learning_list.txt")
