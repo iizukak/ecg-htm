@@ -38,9 +38,21 @@ for i in range(FFT_SEGMENT_SIZE):
     currentSegment.append(int(value))
 print(currentSegment)
 
+# write csv headers
+'''
+csvWriter.writerow(["timestamp", "raw_value", "wavelet_value"])
+csvWriter.writerow(["datetime", "int", "float"])
+csvWriter.writerow(["T", "", ""])
+'''
+
+hamm = numpy.hamming(FFT_SEGMENT_SIZE)
 for row in csvReader:
     date, value = row[0], int(row[1])
     currentSegment.append(value)
-    FFTValue = numpy.fft.hfft(currentSegment)
+    window = currentSegment * hamm
+    # FFTValue = numpy.log(numpy.abs(numpy.fft.fft(window).real))
+    # FFTValue = numpy.abs(numpy.fft.fft(window).real)
     # FFTValue = pywt.dwt(currentSegment ,"db1")[0]
+    FFTValue = numpy.log([numpy.sqrt(c.real ** 2 + c.imag ** 2) for c in numpy.fft.fft(window)][0:(FFT_SEGMENT_SIZE/2)])
     csvWriter.writerow(FFTValue)
+    # csvWriter.writerow((date, value, FFTValue))
