@@ -34,6 +34,10 @@ print("MAX_VALUE",max(testrow))
 # plt.show()
 
 fig, ax = plt.subplots()
+plt.title("FFT-converted ECG")
+plt.xlabel("frequency index(not Hz)")
+plt.ylabel("value")
+
 line, = ax.plot(testrow)
 
 def update(data):

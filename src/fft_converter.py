@@ -7,7 +7,7 @@ import numpy
 from collections import deque
 
 # setting for fft conversion
-FFT_SEGMENT_SIZE = 250
+FFT_SEGMENT_SIZE = 500
 
 # setting CSV data directory
 DATA_DIR = "data/"
