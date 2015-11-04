@@ -1,25 +1,24 @@
 """
-A simple client to create a CLA anomaly detection model for geospatial data.
+A simple client to create a CLA anomaly detection model for coordinate data.
 """
 
 import csv
 import datetime
 import sys
+import numpy
 
 from nupic.frameworks.opf.modelfactory import ModelFactory
 
-import model_params
+import model_params.model_params_coordinate as model_params
 
 
 
-DEFAULT_DATA_PATH = "data/commute.csv"
-DEFAULT_OUTPUT_PATH = "anomaly_scores.csv"
+DEFAULT_DATA_PATH = "data/healthy_person1_fft_converted.csv"
+DEFAULT_OUTPUT_PATH = "data/anomaly_scores.csv"
+DATE_FORMAT = "%Y-%m-%d %H:%M:%S.%f"
+RADIUS = 5 # Change this value to valid
 
-ACCURACY_THRESHOLD = 80  # meters
-INTERVAL_THRESHOLD = 30  # seconds
-
-
-
+'''
 def addTimeEncoders(params):
   params["modelParams"]["sensorParams"]["encoders"]["timestamp_timeOfDay"] = {
     "fieldname": u"timestamp",
@@ -28,22 +27,11 @@ def addTimeEncoders(params):
     "type": "DateEncoder"
   }
   return params
+'''
 
 
-
-def setEncoderScale(params, scale):
-  params["modelParams"]["sensorParams"]["encoders"]["vector"]["scale"] = \
-    int(scale)
-  return params
-
-
-
-def createModel(useTimeEncoders, scale, verbose):
+def createModel(verbose):
   params = model_params.MODEL_PARAMS
-  if useTimeEncoders:
-    params = addTimeEncoders(params)
-  if scale:
-    params = setEncoderScale(params, scale)
   if verbose:
     print "Model parameters:"
     print params
@@ -52,86 +40,49 @@ def createModel(useTimeEncoders, scale, verbose):
   return model
 
 
-
-def runGeospatialAnomaly(dataPath, outputPath,
-                         scale=False,
-                         autoSequence=False,
-                         useTimeEncoders=True,
+def runCoordinateAnomaly(dataPath, outputPath,
                          verbose=True):
 
-  model = createModel(useTimeEncoders, scale, verbose)
+  model = createModel(verbose)
 
   with open (dataPath) as fin:
     reader = csv.reader(fin)
     csvWriter = csv.writer(open(outputPath,"wb"))
     csvWriter.writerow(["timestamp",
-                       "longitude",
-                       "latitude",
-                       "speed",
-                       "anomaly_score",
-                       "new_sequence"])
+                       "anomaly_score",])
 
     reader.next()
     reader.next()
     reader.next()
 
-    lastTimestamp = None
-    lastTrackName = None
-    outputFormat = "%Y-%m-%dT%H:%M:%S"
-
+    # it's dummy value. use valid value
+    timestamp = datetime.datetime.strptime("2015-10-17 21:05:57.033917", DATE_FORMAT)
     for _, record in enumerate(reader, start=1):
-      trackName = record[0]
+      '''
       timestamp = datetime.datetime.fromtimestamp(int(record[1]) / 1e3)
-      longitude = float(record[2])
-      latitude = float(record[3])
-      speed = float(record[5])
-      accuracy = float(record[7])
-
-      altitude = float(record[4]) if record[4] != "" else None
+      '''
+      print(record)
+      values = numpy.array(map(lambda x:int(x), record))
+      # TODO: THIS IS DEBUG DUMMY VALUES
+      values = numpy.array(range(3))
+      print("DEBUG RUN MODEL")
       
-      if accuracy > ACCURACY_THRESHOLD:
-        continue
-
-      newSequence = False
-      # Handle the automatic sequence creation
-      if autoSequence:
-        if lastTimestamp and (
-          (timestamp - lastTimestamp).total_seconds() > INTERVAL_THRESHOLD):
-          newSequence = True
-      # Manual sequence resets depend on the track name
-      else:
-        if trackName != lastTrackName:
-          newSequence = True
-
-      lastTimestamp = timestamp
-      lastTrackName = trackName
-
-      if newSequence:
-        if verbose:
-          print "Starting new sequence..."
-        model.resetSequenceStates()
+      timestamp = timestamp + datetime.timedelta(microseconds=10000) 
 
       modelInput = {
-        "vector": (speed, longitude, latitude, altitude)
+        "vector": (values, RADIUS),
+        "timestamp": timestamp
       }
       
-      if useTimeEncoders:
-        modelInput["timestamp"] = timestamp
-
       result = model.run(modelInput)
       anomalyScore = result.inferences["anomalyScore"]
 
-      csvWriter.writerow([timestamp.strftime(outputFormat),
-                          longitude,
-                          latitude,
-                          speed,
-                          anomalyScore,
-                          1 if newSequence else 0])
+      csvWriter.writerow([anomalyScore])
+
       if verbose:
         print "[{0}] - Anomaly score: {1}.".format(timestamp, anomalyScore)
 
   print "Anomaly scores have been written to {0}".format(outputPath)
-
 
 
 if __name__ == "__main__":
@@ -144,4 +95,4 @@ if __name__ == "__main__":
   if len(sys.argv) > 2:
     outputPath = sys.argv[2]
 
-  runGeospatialAnomaly(dataPath, outputPath)
+  runCoordinateAnomaly(dataPath, outputPath)
