@@ -1,4 +1,4 @@
-DEL_PARAMS = {
+MODEL_PARAMS = {
     # Type of model that the rest of these parameters apply to.
     'model': "CLA",
 
@@ -32,11 +32,13 @@ DEL_PARAMS = {
                     'fieldname': u'vector',
                     'n': 2048,
                     'w': 51,
-                    'scale': 5,
-                    'timestep': 10,
                     'name': u'vector',
-                    'type': 'GeospatialCoordinateEncoder'
-                },
+                    'type': 'CoordinateEncoder'},
+                u'timestamp_dayOfWeek': {
+                    'dayOfWeek': (21, 1.09375),
+                    'fieldname': 'timestamp',
+                    'name': 'timestamp',
+                    'type': 'DateEncoder'},
             },
 
             # A dictionary specifying the period for automatically-generated
