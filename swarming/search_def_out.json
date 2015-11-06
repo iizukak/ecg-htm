@@ -1,0 +1,2047 @@
+{
+    "includedFields": [
+        {
+            "fieldName": "timestamp", 
+            "fieldType": "datetime"
+        }, 
+        {
+            "fieldName": "f0", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f1", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f2", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f3", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f4", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f5", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f6", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f7", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f8", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f9", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f10", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f11", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f12", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f13", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f14", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f15", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f16", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f17", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f18", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f19", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f20", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f21", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f22", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f23", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f24", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f25", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f26", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f27", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f28", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f29", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f30", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f31", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f32", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f33", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f34", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f35", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f36", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f37", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f38", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f39", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f40", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f41", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f42", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f43", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f44", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f45", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f46", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f47", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f48", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f49", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f50", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f51", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f52", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f53", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f54", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f55", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f56", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f57", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f58", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f59", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f60", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f61", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f62", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f63", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f64", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f65", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f66", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f67", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f68", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f69", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f70", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f71", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f72", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f73", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f74", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f75", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f76", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f77", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f78", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f79", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f80", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f81", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f82", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f83", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f84", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f85", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f86", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f87", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f88", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f89", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f90", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f91", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f92", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f93", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f94", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f95", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f96", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f97", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f98", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f99", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f100", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f101", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f102", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f103", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f104", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f105", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f106", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f107", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f108", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f109", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f110", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f111", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f112", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f113", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f114", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f115", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f116", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f117", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f118", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f119", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f120", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f121", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f122", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f123", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f124", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f125", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f126", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f127", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f128", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f129", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f130", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f131", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f132", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f133", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f134", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f135", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f136", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f137", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f138", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f139", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f140", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f141", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f142", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f143", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f144", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f145", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f146", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f147", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f148", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f149", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f150", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f151", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f152", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f153", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f154", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f155", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f156", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f157", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f158", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f159", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f160", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f161", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f162", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f163", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f164", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f165", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f166", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f167", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f168", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f169", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f170", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f171", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f172", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f173", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f174", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f175", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f176", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f177", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f178", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f179", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f180", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f181", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f182", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f183", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f184", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f185", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f186", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f187", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f188", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f189", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f190", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f191", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f192", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f193", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f194", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f195", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f196", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f197", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f198", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f199", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f200", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f201", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f202", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f203", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f204", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f205", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f206", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f207", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f208", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f209", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f210", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f211", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f212", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f213", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f214", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f215", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f216", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f217", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f218", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f219", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f220", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f221", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f222", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f223", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f224", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f225", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f226", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f227", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f228", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f229", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f230", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f231", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f232", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f233", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f234", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f235", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f236", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f237", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f238", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f239", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f240", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f241", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f242", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f243", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f244", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f245", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f246", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f247", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f248", 
+            "fieldType": "int"
+        }, 
+        {
+            "fieldName": "f249", 
+            "fieldType": "int"
+        }
+    ], 
+    "inferenceArgs": {
+        "predictionSteps": [
+            1
+        ]
+    }, 
+    "inferenceType": "TemporalAnomaly", 
+    "iterationCount": -1, 
+    "streamDef": {
+        "aggregation": {
+            "days": 0, 
+            "fields": [
+                [
+                    "timestamp", 
+                    "first"
+                ], 
+                [
+                    "f0", 
+                    "sum"
+                ], 
+                [
+                    "f1", 
+                    "sum"
+                ], 
+                [
+                    "f2", 
+                    "sum"
+                ], 
+                [
+                    "f3", 
+                    "sum"
+                ], 
+                [
+                    "f4", 
+                    "sum"
+                ], 
+                [
+                    "f5", 
+                    "sum"
+                ], 
+                [
+                    "f6", 
+                    "sum"
+                ], 
+                [
+                    "f7", 
+                    "sum"
+                ], 
+                [
+                    "f8", 
+                    "sum"
+                ], 
+                [
+                    "f9", 
+                    "sum"
+                ], 
+                [
+                    "f10", 
+                    "sum"
+                ], 
+                [
+                    "f11", 
+                    "sum"
+                ], 
+                [
+                    "f12", 
+                    "sum"
+                ], 
+                [
+                    "f13", 
+                    "sum"
+                ], 
+                [
+                    "f14", 
+                    "sum"
+                ], 
+                [
+                    "f15", 
+                    "sum"
+                ], 
+                [
+                    "f16", 
+                    "sum"
+                ], 
+                [
+                    "f17", 
+                    "sum"
+                ], 
+                [
+                    "f18", 
+                    "sum"
+                ], 
+                [
+                    "f19", 
+                    "sum"
+                ], 
+                [
+                    "f20", 
+                    "sum"
+                ], 
+                [
+                    "f21", 
+                    "sum"
+                ], 
+                [
+                    "f22", 
+                    "sum"
+                ], 
+                [
+                    "f23", 
+                    "sum"
+                ], 
+                [
+                    "f24", 
+                    "sum"
+                ], 
+                [
+                    "f25", 
+                    "sum"
+                ], 
+                [
+                    "f26", 
+                    "sum"
+                ], 
+                [
+                    "f27", 
+                    "sum"
+                ], 
+                [
+                    "f28", 
+                    "sum"
+                ], 
+                [
+                    "f29", 
+                    "sum"
+                ], 
+                [
+                    "f30", 
+                    "sum"
+                ], 
+                [
+                    "f31", 
+                    "sum"
+                ], 
+                [
+                    "f32", 
+                    "sum"
+                ], 
+                [
+                    "f33", 
+                    "sum"
+                ], 
+                [
+                    "f34", 
+                    "sum"
+                ], 
+                [
+                    "f35", 
+                    "sum"
+                ], 
+                [
+                    "f36", 
+                    "sum"
+                ], 
+                [
+                    "f37", 
+                    "sum"
+                ], 
+                [
+                    "f38", 
+                    "sum"
+                ], 
+                [
+                    "f39", 
+                    "sum"
+                ], 
+                [
+                    "f40", 
+                    "sum"
+                ], 
+                [
+                    "f41", 
+                    "sum"
+                ], 
+                [
+                    "f42", 
+                    "sum"
+                ], 
+                [
+                    "f43", 
+                    "sum"
+                ], 
+                [
+                    "f44", 
+                    "sum"
+                ], 
+                [
+                    "f45", 
+                    "sum"
+                ], 
+                [
+                    "f46", 
+                    "sum"
+                ], 
+                [
+                    "f47", 
+                    "sum"
+                ], 
+                [
+                    "f48", 
+                    "sum"
+                ], 
+                [
+                    "f49", 
+                    "sum"
+                ], 
+                [
+                    "f50", 
+                    "sum"
+                ], 
+                [
+                    "f51", 
+                    "sum"
+                ], 
+                [
+                    "f52", 
+                    "sum"
+                ], 
+                [
+                    "f53", 
+                    "sum"
+                ], 
+                [
+                    "f54", 
+                    "sum"
+                ], 
+                [
+                    "f55", 
+                    "sum"
+                ], 
+                [
+                    "f56", 
+                    "sum"
+                ], 
+                [
+                    "f57", 
+                    "sum"
+                ], 
+                [
+                    "f58", 
+                    "sum"
+                ], 
+                [
+                    "f59", 
+                    "sum"
+                ], 
+                [
+                    "f60", 
+                    "sum"
+                ], 
+                [
+                    "f61", 
+                    "sum"
+                ], 
+                [
+                    "f62", 
+                    "sum"
+                ], 
+                [
+                    "f63", 
+                    "sum"
+                ], 
+                [
+                    "f64", 
+                    "sum"
+                ], 
+                [
+                    "f65", 
+                    "sum"
+                ], 
+                [
+                    "f66", 
+                    "sum"
+                ], 
+                [
+                    "f67", 
+                    "sum"
+                ], 
+                [
+                    "f68", 
+                    "sum"
+                ], 
+                [
+                    "f69", 
+                    "sum"
+                ], 
+                [
+                    "f70", 
+                    "sum"
+                ], 
+                [
+                    "f71", 
+                    "sum"
+                ], 
+                [
+                    "f72", 
+                    "sum"
+                ], 
+                [
+                    "f73", 
+                    "sum"
+                ], 
+                [
+                    "f74", 
+                    "sum"
+                ], 
+                [
+                    "f75", 
+                    "sum"
+                ], 
+                [
+                    "f76", 
+                    "sum"
+                ], 
+                [
+                    "f77", 
+                    "sum"
+                ], 
+                [
+                    "f78", 
+                    "sum"
+                ], 
+                [
+                    "f79", 
+                    "sum"
+                ], 
+                [
+                    "f80", 
+                    "sum"
+                ], 
+                [
+                    "f81", 
+                    "sum"
+                ], 
+                [
+                    "f82", 
+                    "sum"
+                ], 
+                [
+                    "f83", 
+                    "sum"
+                ], 
+                [
+                    "f84", 
+                    "sum"
+                ], 
+                [
+                    "f85", 
+                    "sum"
+                ], 
+                [
+                    "f86", 
+                    "sum"
+                ], 
+                [
+                    "f87", 
+                    "sum"
+                ], 
+                [
+                    "f88", 
+                    "sum"
+                ], 
+                [
+                    "f89", 
+                    "sum"
+                ], 
+                [
+                    "f90", 
+                    "sum"
+                ], 
+                [
+                    "f91", 
+                    "sum"
+                ], 
+                [
+                    "f92", 
+                    "sum"
+                ], 
+                [
+                    "f93", 
+                    "sum"
+                ], 
+                [
+                    "f94", 
+                    "sum"
+                ], 
+                [
+                    "f95", 
+                    "sum"
+                ], 
+                [
+                    "f96", 
+                    "sum"
+                ], 
+                [
+                    "f97", 
+                    "sum"
+                ], 
+                [
+                    "f98", 
+                    "sum"
+                ], 
+                [
+                    "f99", 
+                    "sum"
+                ], 
+                [
+                    "f100", 
+                    "sum"
+                ], 
+                [
+                    "f101", 
+                    "sum"
+                ], 
+                [
+                    "f102", 
+                    "sum"
+                ], 
+                [
+                    "f103", 
+                    "sum"
+                ], 
+                [
+                    "f104", 
+                    "sum"
+                ], 
+                [
+                    "f105", 
+                    "sum"
+                ], 
+                [
+                    "f106", 
+                    "sum"
+                ], 
+                [
+                    "f107", 
+                    "sum"
+                ], 
+                [
+                    "f108", 
+                    "sum"
+                ], 
+                [
+                    "f109", 
+                    "sum"
+                ], 
+                [
+                    "f110", 
+                    "sum"
+                ], 
+                [
+                    "f111", 
+                    "sum"
+                ], 
+                [
+                    "f112", 
+                    "sum"
+                ], 
+                [
+                    "f113", 
+                    "sum"
+                ], 
+                [
+                    "f114", 
+                    "sum"
+                ], 
+                [
+                    "f115", 
+                    "sum"
+                ], 
+                [
+                    "f116", 
+                    "sum"
+                ], 
+                [
+                    "f117", 
+                    "sum"
+                ], 
+                [
+                    "f118", 
+                    "sum"
+                ], 
+                [
+                    "f119", 
+                    "sum"
+                ], 
+                [
+                    "f120", 
+                    "sum"
+                ], 
+                [
+                    "f121", 
+                    "sum"
+                ], 
+                [
+                    "f122", 
+                    "sum"
+                ], 
+                [
+                    "f123", 
+                    "sum"
+                ], 
+                [
+                    "f124", 
+                    "sum"
+                ], 
+                [
+                    "f125", 
+                    "sum"
+                ], 
+                [
+                    "f126", 
+                    "sum"
+                ], 
+                [
+                    "f127", 
+                    "sum"
+                ], 
+                [
+                    "f128", 
+                    "sum"
+                ], 
+                [
+                    "f129", 
+                    "sum"
+                ], 
+                [
+                    "f130", 
+                    "sum"
+                ], 
+                [
+                    "f131", 
+                    "sum"
+                ], 
+                [
+                    "f132", 
+                    "sum"
+                ], 
+                [
+                    "f133", 
+                    "sum"
+                ], 
+                [
+                    "f134", 
+                    "sum"
+                ], 
+                [
+                    "f135", 
+                    "sum"
+                ], 
+                [
+                    "f136", 
+                    "sum"
+                ], 
+                [
+                    "f137", 
+                    "sum"
+                ], 
+                [
+                    "f138", 
+                    "sum"
+                ], 
+                [
+                    "f139", 
+                    "sum"
+                ], 
+                [
+                    "f140", 
+                    "sum"
+                ], 
+                [
+                    "f141", 
+                    "sum"
+                ], 
+                [
+                    "f142", 
+                    "sum"
+                ], 
+                [
+                    "f143", 
+                    "sum"
+                ], 
+                [
+                    "f144", 
+                    "sum"
+                ], 
+                [
+                    "f145", 
+                    "sum"
+                ], 
+                [
+                    "f146", 
+                    "sum"
+                ], 
+                [
+                    "f147", 
+                    "sum"
+                ], 
+                [
+                    "f148", 
+                    "sum"
+                ], 
+                [
+                    "f149", 
+                    "sum"
+                ], 
+                [
+                    "f150", 
+                    "sum"
+                ], 
+                [
+                    "f151", 
+                    "sum"
+                ], 
+                [
+                    "f152", 
+                    "sum"
+                ], 
+                [
+                    "f153", 
+                    "sum"
+                ], 
+                [
+                    "f154", 
+                    "sum"
+                ], 
+                [
+                    "f155", 
+                    "sum"
+                ], 
+                [
+                    "f156", 
+                    "sum"
+                ], 
+                [
+                    "f157", 
+                    "sum"
+                ], 
+                [
+                    "f158", 
+                    "sum"
+                ], 
+                [
+                    "f159", 
+                    "sum"
+                ], 
+                [
+                    "f160", 
+                    "sum"
+                ], 
+                [
+                    "f161", 
+                    "sum"
+                ], 
+                [
+                    "f162", 
+                    "sum"
+                ], 
+                [
+                    "f163", 
+                    "sum"
+                ], 
+                [
+                    "f164", 
+                    "sum"
+                ], 
+                [
+                    "f165", 
+                    "sum"
+                ], 
+                [
+                    "f166", 
+                    "sum"
+                ], 
+                [
+                    "f167", 
+                    "sum"
+                ], 
+                [
+                    "f168", 
+                    "sum"
+                ], 
+                [
+                    "f169", 
+                    "sum"
+                ], 
+                [
+                    "f170", 
+                    "sum"
+                ], 
+                [
+                    "f171", 
+                    "sum"
+                ], 
+                [
+                    "f172", 
+                    "sum"
+                ], 
+                [
+                    "f173", 
+                    "sum"
+                ], 
+                [
+                    "f174", 
+                    "sum"
+                ], 
+                [
+                    "f175", 
+                    "sum"
+                ], 
+                [
+                    "f176", 
+                    "sum"
+                ], 
+                [
+                    "f177", 
+                    "sum"
+                ], 
+                [
+                    "f178", 
+                    "sum"
+                ], 
+                [
+                    "f179", 
+                    "sum"
+                ], 
+                [
+                    "f180", 
+                    "sum"
+                ], 
+                [
+                    "f181", 
+                    "sum"
+                ], 
+                [
+                    "f182", 
+                    "sum"
+                ], 
+                [
+                    "f183", 
+                    "sum"
+                ], 
+                [
+                    "f184", 
+                    "sum"
+                ], 
+                [
+                    "f185", 
+                    "sum"
+                ], 
+                [
+                    "f186", 
+                    "sum"
+                ], 
+                [
+                    "f187", 
+                    "sum"
+                ], 
+                [
+                    "f188", 
+                    "sum"
+                ], 
+                [
+                    "f189", 
+                    "sum"
+                ], 
+                [
+                    "f190", 
+                    "sum"
+                ], 
+                [
+                    "f191", 
+                    "sum"
+                ], 
+                [
+                    "f192", 
+                    "sum"
+                ], 
+                [
+                    "f193", 
+                    "sum"
+                ], 
+                [
+                    "f194", 
+                    "sum"
+                ], 
+                [
+                    "f195", 
+                    "sum"
+                ], 
+                [
+                    "f196", 
+                    "sum"
+                ], 
+                [
+                    "f197", 
+                    "sum"
+                ], 
+                [
+                    "f198", 
+                    "sum"
+                ], 
+                [
+                    "f199", 
+                    "sum"
+                ], 
+                [
+                    "f200", 
+                    "sum"
+                ], 
+                [
+                    "f201", 
+                    "sum"
+                ], 
+                [
+                    "f202", 
+                    "sum"
+                ], 
+                [
+                    "f203", 
+                    "sum"
+                ], 
+                [
+                    "f204", 
+                    "sum"
+                ], 
+                [
+                    "f205", 
+                    "sum"
+                ], 
+                [
+                    "f206", 
+                    "sum"
+                ], 
+                [
+                    "f207", 
+                    "sum"
+                ], 
+                [
+                    "f208", 
+                    "sum"
+                ], 
+                [
+                    "f209", 
+                    "sum"
+                ], 
+                [
+                    "f210", 
+                    "sum"
+                ], 
+                [
+                    "f211", 
+                    "sum"
+                ], 
+                [
+                    "f212", 
+                    "sum"
+                ], 
+                [
+                    "f213", 
+                    "sum"
+                ], 
+                [
+                    "f214", 
+                    "sum"
+                ], 
+                [
+                    "f215", 
+                    "sum"
+                ], 
+                [
+                    "f216", 
+                    "sum"
+                ], 
+                [
+                    "f217", 
+                    "sum"
+                ], 
+                [
+                    "f218", 
+                    "sum"
+                ], 
+                [
+                    "f219", 
+                    "sum"
+                ], 
+                [
+                    "f220", 
+                    "sum"
+                ], 
+                [
+                    "f221", 
+                    "sum"
+                ], 
+                [
+                    "f222", 
+                    "sum"
+                ], 
+                [
+                    "f223", 
+                    "sum"
+                ], 
+                [
+                    "f224", 
+                    "sum"
+                ], 
+                [
+                    "f225", 
+                    "sum"
+                ], 
+                [
+                    "f226", 
+                    "sum"
+                ], 
+                [
+                    "f227", 
+                    "sum"
+                ], 
+                [
+                    "f228", 
+                    "sum"
+                ], 
+                [
+                    "f229", 
+                    "sum"
+                ], 
+                [
+                    "f230", 
+                    "sum"
+                ], 
+                [
+                    "f231", 
+                    "sum"
+                ], 
+                [
+                    "f232", 
+                    "sum"
+                ], 
+                [
+                    "f233", 
+                    "sum"
+                ], 
+                [
+                    "f234", 
+                    "sum"
+                ], 
+                [
+                    "f235", 
+                    "sum"
+                ], 
+                [
+                    "f236", 
+                    "sum"
+                ], 
+                [
+                    "f237", 
+                    "sum"
+                ], 
+                [
+                    "f238", 
+                    "sum"
+                ], 
+                [
+                    "f239", 
+                    "sum"
+                ], 
+                [
+                    "f240", 
+                    "sum"
+                ], 
+                [
+                    "f241", 
+                    "sum"
+                ], 
+                [
+                    "f242", 
+                    "sum"
+                ], 
+                [
+                    "f243", 
+                    "sum"
+                ], 
+                [
+                    "f244", 
+                    "sum"
+                ], 
+                [
+                    "f245", 
+                    "sum"
+                ], 
+                [
+                    "f246", 
+                    "sum"
+                ], 
+                [
+                    "f247", 
+                    "sum"
+                ], 
+                [
+                    "f248", 
+                    "sum"
+                ], 
+                [
+                    "f249", 
+                    "sum"
+                ]
+            ], 
+            "hours": 0, 
+            "microseconds": 0, 
+            "milliseconds": 0, 
+            "minutes": 0, 
+            "months": 0, 
+            "seconds": 0, 
+            "weeks": 0, 
+            "years": 0
+        }, 
+        "info": "test", 
+        "streams": [
+            {
+                "columns": [
+                    "*"
+                ], 
+                "info": "healthy_person1_fft_converted.csv", 
+                "last_record": 2000, 
+                "source": "file://data/healthy_person1_fft_converted.csv"
+            }
+        ], 
+        "version": 1
+    }, 
+    "swarmSize": "medium"
+}

@@ -1,0 +1,47 @@
+{
+  "includedFields": [
+    {
+      "fieldName": "timestamp",
+      "fieldType": "datetime"
+    }
+  ], 
+  "streamDef": {
+    "info": "test", 
+    "version": 1, 
+    "streams": [
+      {
+        "info": "healthy_person1_fft_converted.csv",
+        "source": "file://data/healthy_person1_fft_converted.csv",
+        "columns": [
+          "*"
+        ],
+        "last_record": 2000
+      }
+    ], 
+    "aggregation": {
+      "hours": 0,
+      "microseconds": 0, 
+      "seconds": 0, 
+      "fields": [
+        [
+          "timestamp",
+          "first"
+        ]
+      ], 
+      "weeks": 0, 
+      "months": 0, 
+      "minutes": 0, 
+      "days": 0, 
+      "milliseconds": 0,
+      "years": 0
+    }
+  }, 
+  "inferenceType": "TemporalAnomaly",
+  "inferenceArgs": {
+    "predictionSteps": [
+      1
+    ]
+  }, 
+  "iterationCount": -1, 
+  "swarmSize": "medium"
+}
