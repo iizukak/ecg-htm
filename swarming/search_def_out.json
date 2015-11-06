@@ -1006,6 +1006,7 @@
         }
     ], 
     "inferenceArgs": {
+        "predictedField": "f1", 
         "predictionSteps": [
             1
         ]

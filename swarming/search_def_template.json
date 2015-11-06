@@ -40,7 +40,8 @@
   "inferenceArgs": {
     "predictionSteps": [
       1
-    ]
+    ],
+    "predictedField": "f1"
   }, 
   "iterationCount": -1, 
   "swarmSize": "medium"
