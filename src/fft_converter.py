@@ -7,7 +7,7 @@ import numpy
 from collections import deque
 
 # setting for fft conversion
-FFT_SEGMENT_SIZE = 250
+FFT_SEGMENT_SIZE = 500
 
 # setting CSV data directory
 DATA_DIR = "data/"
@@ -53,6 +53,9 @@ for row in csvReader:
     # FFTValue = numpy.log(numpy.abs(numpy.fft.fft(window).real))
     # FFTValue = numpy.abs(numpy.fft.fft(window).real)
     # FFTValue = pywt.dwt(currentSegment ,"db1")[0]
-    FFTValue = numpy.log([numpy.sqrt(c.real ** 2 + c.imag ** 2) for c in numpy.fft.fft(window)][0:(FFT_SEGMENT_SIZE/2)])
+    # FFTValue = numpy.log([numpy.sqrt(c.real ** 2 + c.imag ** 2) for c in numpy.fft.fft(window)][0:(FFT_SEGMENT_SIZE/2)])
+    FFTValue = map(lambda x:int(x), 
+        [numpy.sqrt(c.real ** 2 + c.imag ** 2) for c in numpy.fft.fft(window)][0:(FFT_SEGMENT_SIZE/2)])
+
     csvWriter.writerow(FFTValue)
     # csvWriter.writerow((date, value, FFTValue))
