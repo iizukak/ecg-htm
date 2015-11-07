@@ -45,6 +45,17 @@ csvWriter.writerow(["datetime", "int", "float"])
 csvWriter.writerow(["T", "", ""])
 '''
 
+# generate headers
+header_row_1 = ["timestamp"]
+for i in range(FFT_SEGMENT_SIZE / 2):
+    header_row_1.append("f" + str(i))
+header_row_2 = ["datetime"] + (["int"] * (FFT_SEGMENT_SIZE / 2))
+header_row_3 = ["T"] + ([""] * (FFT_SEGMENT_SIZE / 2))
+
+csvWriter.writerow(header_row_1)
+csvWriter.writerow(header_row_2)
+csvWriter.writerow(header_row_3)
+
 hamm = numpy.hamming(FFT_SEGMENT_SIZE)
 for row in csvReader:
     date, value = row[0], int(row[1])
@@ -54,8 +65,9 @@ for row in csvReader:
     # FFTValue = numpy.abs(numpy.fft.fft(window).real)
     # FFTValue = pywt.dwt(currentSegment ,"db1")[0]
     # FFTValue = numpy.log([numpy.sqrt(c.real ** 2 + c.imag ** 2) for c in numpy.fft.fft(window)][0:(FFT_SEGMENT_SIZE/2)])
-    FFTValue = map(lambda x:int(x), 
+    FFTValue = map(lambda x:float(x),
         [numpy.sqrt(c.real ** 2 + c.imag ** 2) for c in numpy.fft.fft(window)][0:(FFT_SEGMENT_SIZE/2)])
 
-    csvWriter.writerow(FFTValue)
+    # csvWriter.writerow(FFTValue)
+    csvWriter.writerow([date] + FFTValue)
     # csvWriter.writerow((date, value, FFTValue))
